@@ -3,9 +3,12 @@
 
 
 
-int insArray(int arr[],int capacity,int size,int index,int element);
+int insArray(int arr[],int capacity,int* size,int index,int element);
 void print(int arr[],int n);
 int insert(int arr[],int n,int* size,int element);
+int delete(int arr[],int* size,int n,int index);
+
+
 
 
 
@@ -13,7 +16,9 @@ int insert(int arr[],int n,int* size,int element);
 int main(){
     int arr[5] = {15,59,64},size = 3,index = 0,cap = 5;
     print(arr,size);
-    insert(arr,cap,&size,2);
+    insArray(arr,cap,&size,1,2);
+    print(arr,size);
+    delete(arr,&size,cap,0);
     print(arr,size);
     return 0;
 }
@@ -22,16 +27,16 @@ int main(){
 
 
 
-int insArray(int arr[],int capacity,int size,int index,int element){
+int insArray(int arr[],int capacity,int* size,int index,int element){
     
-    if(size >= capacity){
+    if(*size >= capacity){
         return -1;
     }
 
-    for(int i = size-1;i>= index;i--){
+    for(int i = (*size)-1;i>= index;i--){
         arr[i+1] = arr[i];
     }
-    
+    (*size)++;
     arr[index] = element;
     return 0;
 }
@@ -54,7 +59,22 @@ int insert(int arr[],int n,int* size,int element){
             break;
         }
     }
-    insArray(arr,n,*size,index,element);
+    insArray(arr,n,size,index,element);
     (*size)++;
+    return 0;
+}
+
+
+int delete(int arr[],int* size,int n,int index){
+    if(*size>= n){
+        return -1;
+    }
+    for(int i = index;i < (*size);i++){
+        int temp = arr[i];
+        arr[i] = arr[i+1];
+        arr[i+1] = temp;
+    }
+    arr[(*size)] = 0;
+    (*size)--;
     return 0;
 }
