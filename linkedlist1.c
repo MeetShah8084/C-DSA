@@ -7,15 +7,16 @@ typedef struct node{
 }Node;
 
 void traversal(Node* head){
-    while(head->next!=NULL){
-        printf("%d\n",head->next->data);
+    while(head!=NULL){
+        printf("%d\n",head->data);
         head = head->next;
     }
 }
 
 int main(){
-    Node* head,first = {10},second = {10};
+    Node* head = NULL,first = {10},second = {10};
     head = (Node*)malloc(sizeof(Node));
+    head->data = 10;
     head->next = &first;
     first.next = &second;
     second.next = NULL;
