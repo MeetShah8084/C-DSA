@@ -24,7 +24,8 @@ int main(){
     first.next = &second;
     second.next = NULL;
     traversal(head);
-    insertion(head,&first);
+    insertion(head,&second,first.next);
+    traversal(head);
     free(head);
     return 0;
 }
@@ -36,6 +37,7 @@ void traversal(Node* head){
         printf("%d\n",head->data);
         head = head->next;
     }
+    printf("\n");
 }
 
 
@@ -47,5 +49,6 @@ void insertion(Node* head,Node* insNext,Node* insert){
             head->next = insert;
             break;
         }
+        head = head->next;
     }
 }
