@@ -1,17 +1,19 @@
 #include<stdio.h>
 #include<stdlib.h>
 
+
+
 typedef struct node{
     int data;
     struct node* next;
 }Node;
 
-void traversal(Node* head){
-    while(head!=NULL){
-        printf("%d\n",head->data);
-        head = head->next;
-    }
-}
+
+
+void traversal(Node* head);
+
+
+
 
 int main(){
     Node* head = NULL,first = {10},second = {10};
@@ -23,4 +25,13 @@ int main(){
     traversal(head);
     free(head);
     return 0;
+}
+
+
+
+void traversal(Node* head){
+    while(head!=NULL){
+        printf("%d\n",head->data);
+        head = head->next;
+    }
 }
