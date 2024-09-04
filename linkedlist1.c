@@ -21,5 +21,6 @@ int main(){
     first.next = &second;
     second.next = NULL;
     traversal(head);
+    free(head);
     return 0;
 }
