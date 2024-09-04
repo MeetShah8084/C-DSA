@@ -11,7 +11,7 @@ typedef struct node{
 
 
 void traversal(Node* head);
-void insertion(Node* head,Node* pp);
+void insertion(Node* head,Node* insNext,Node* insert);
 
 
 
@@ -39,14 +39,12 @@ void traversal(Node* head){
 }
 
 
-void insertion(Node* head,Node* pp){
+void insertion(Node* head,Node* insNext,Node* insert){
     Node* temp;
     while(head!= NULL){
-        if(head->next == pp){
-            Node* temp = (Node*)malloc(sizeof(Node));
-            temp->data = 1001;
-            temp->next = pp;
-            head->next = temp;
+        if(head->next == insNext){
+            insert->next = insNext->next;
+            head->next = insert;
             break;
         }
     }
