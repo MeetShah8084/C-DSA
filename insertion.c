@@ -70,9 +70,7 @@ int delete(int arr[],int* size,int n,int index){
         return -1;
     }
     for(int i = index;i < (*size);i++){
-        int temp = arr[i];
         arr[i] = arr[i+1];
-        arr[i+1] = temp;
     }
     arr[(*size)] = 0;
     (*size)--;
