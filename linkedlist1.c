@@ -11,20 +11,20 @@ typedef struct node{
 
 
 void traversal(Node* head);
-void insertion(Node* head,Node* insNext,Node* insert);
-
+void inseraftnode(Node* head,Node* insNext,Node* insert);
+void insertion(Node* head,Node* insert,int pos);
 
 
 
 int main(){
-    Node* head = NULL,first = {10},second = {10};
+    Node* head = NULL,first = {110},second = {102},third ={1002};
     head = (Node*)malloc(sizeof(Node));
     head->data = 10;
     head->next = &first;
     first.next = &second;
     second.next = NULL;
     traversal(head);
-    insertion(head,&second,first.next);
+    inseraftnode(head,&second,&third);
     traversal(head);
     free(head);
     return 0;
@@ -41,14 +41,18 @@ void traversal(Node* head){
 }
 
 
-void insertion(Node* head,Node* insNext,Node* insert){
-    Node* temp;
-    while(head!= NULL){
-        if(head->next == insNext){
-            insert->next = insNext->next;
-            head->next = insert;
-            break;
-        }
-        head = head->next;
+void inseraftnode(Node* head,Node* insNext,Node* insert){
+    
+    if(head == NULL){
+        head->next = insert;
+    }
+    insert->next = insNext->next;
+    insNext->next = insert;
+}
+
+
+void insertion(Node* head,Node* insert,int pos){
+    if(head == NULL){
+        
     }
 }
