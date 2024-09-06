@@ -53,6 +53,14 @@ void inseraftnode(Node* head,Node* insNext,Node* insert){
 
 void insertion(Node* head,Node* insert,int pos){
     if(head == NULL){
-        
+        insert->next = NULL;
+        head = insert;
     }
+    int i = 1;
+    while(i<=pos){
+        head = head->next;
+        i++;
+    }
+    insert->next = head;
+    head->next = insert;
 }
