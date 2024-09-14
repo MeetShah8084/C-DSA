@@ -96,6 +96,6 @@ void dequeue(queue* r){
 
 void display(queue* r){
     for(int i = r->front;i <= r->rear;i++){
-        printf("%d",r->arr[i]);
+        printf("%d\t",r->arr[i]);
     }
 }
