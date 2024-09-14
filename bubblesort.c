@@ -4,6 +4,11 @@
 
 void bubblesorti(int arr[],int n);
 void bubblesorts(char arr[][50],int n);
+void swap(int *a,int* b){
+   int temp = *a;
+   *a = *b;
+   *b = temp;
+}
 
 void main(){
 
@@ -18,5 +23,17 @@ void main(){
    }
 }
 
-void bubblesorti(int arr[],int n){}
+void bubblesorti(int arr[],int n){
+   int i=0,j=0;
+   while(i < n-1){
+      j = 0;
+      while(j < n-i-1){
+         if(arr[j] > arr[j+1]){
+
+         }
+         j++;
+      }
+      i++;
+   }
+}
 void bubblesorts(char arr[][50],int n){}
