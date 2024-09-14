@@ -57,7 +57,7 @@ int main(){
 
 void enqueue(queue* r,int element){
     if(r->rear == r->n-1){
-        printf("\n\nQueue Overflow\n\n");
+        printf("\n====Queue Overflow======\n");
         return;
     }
 
@@ -82,11 +82,15 @@ void dequeue(queue* r){
     if(r->front > r->rear){
         r->front = -1;
         r->rear = -1;
-        printf("\n\nQueue Underflow\n\n");
+        printf("\033[0;30m");
+        printf("=====\nQueue Underflow======\n");
+        printf("\033[0m");
         return;
     }
     else if(r->rear == -1){
+        printf("\033[0;30m");
         printf("\n\nQueue Underflow\n\n");
+        printf("\033[0m");
         return;
     }
     r->arr[r->front] = 0;
