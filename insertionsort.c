@@ -9,7 +9,7 @@
 void inssort(int arr[],int n);
 void inssortt(char lol[][50],int n);
 
-void main(){
+int main(){
     // int n;
     // printf("Enter the size of array : ");
     // scanf("%d",&n);
@@ -30,33 +30,29 @@ void main(){
     int n;
     printf("Enter size : ");
     scanf("%d",&n);
-    char arr[n][50];
+    int arr[n];
     printf("Enter the elements : \n");
     for(int i = 0 ; i < n;i++){
-        scanf("%s",arr[i]);
+        scanf("%d",&arr[i]);
         getchar();
     }
-    system("clr");
-    inssortt(arr,n);
+    // system("clr");
+    inssort(arr,n);
+    printf("\n");
     for(int i = 0;i < n;i++){
-        printf("%s\n",arr[i]);
+        printf("%d\n",arr[i]);
     }
+    return 0;
 }
 
 void inssort(int arr[],int n){
     int i,key,j;
-    char b = '0';
     for(i = 1;i < n; i++){
         key = arr[i];
         j = i-1;
         while(arr[j] > key && j >= 0){
-            b = '1';
             arr[j+1] = arr[j];
             j--;
-        }
-        if(b == '0'){
-            printf("Returning\n");
-            return;
         }
         arr[j+1] = key;
     }
