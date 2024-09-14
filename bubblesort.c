@@ -25,14 +25,17 @@ void main(){
 
 void bubblesorti(int arr[],int n){
    int i=0,j=0;
+   char a = '0';
    while(i < n-1){
       j = 0;
       while(j < n-i-1){
          if(arr[j] > arr[j+1]){
-
+            swap(&arr[j],&arr[j+1]);
+            a = '1';
          }
          j++;
       }
+      if('a' == 0)  return;
       i++;
    }
 }
